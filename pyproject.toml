@@ -1,0 +1,15 @@
+[project]
+name = "all-gcl-manuscript"
+version = "0.1.0"
+description = "A repository for reproducing the main figures and loading the data for the all-GCL manuscript. "
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastparquet>=2024.11.0",
+    "joblib>=1.5.2",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "pyarrow>=22.0.0",
+    "pynwb>=3.1.2",
+    "tqdm>=4.67.1",
+]
