@@ -1,15 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "all-gcl-manuscript"
+name = "all_gcl_manuscript"
 version = "0.1.0"
-description = "A repository for reproducing the main figures and loading the data for the all-GCL manuscript. "
+description = "A repository for reproducing the main figures and loading the data for the all-GCL manuscript."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastparquet>=2024.11.0",
-    "joblib>=1.5.2",
-    "numpy>=2.3.4",
-    "pandas>=2.3.3",
-    "pyarrow>=22.0.0",
-    "pynwb>=3.1.2",
-    "tqdm>=4.67.1",
+    "fastparquet>=2024.11",
+    "joblib>=1.5",
+    "matplotlib>=3.9",
+    "numpy>=2.0,<3.0",
+    "pandas>=2.2",
+    "pyarrow>=22.0",
+    "pynwb>=3.0",
+    "scipy>=1.16.3",
+    "seaborn>=0.13",
+    "tqdm>=4.66",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0",
+    "ipykernel>=6.0",
+    "pytest>=8.0",
+]
+
+[tool.setuptools]
+packages = ["all_gcl_manuscript"]
