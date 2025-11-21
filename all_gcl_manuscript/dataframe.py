@@ -36,7 +36,7 @@ def filter_df(
             print(f'Filtering genline. Removing {sum(~keep)/n_tot:.0%} of the data.')
         df = df[keep]
 
-    if rf_quality_filer:
+    if rf_quality_filter:
         keep = df.rf_cdia_um.notnull() & (df.rf_cdia_um < 600) & (df.rf_gauss_qidx > 0.4)
         if verbose:
             print(f'Filtering RF. Removing {sum(~keep)/n_tot:.0%} of the data.')
