@@ -8,7 +8,7 @@ def filter_df(
         quality_filter=False,
         location_filter=False,
         genline_filter=True,
-        rf_quality_filer=False,
+        rf_quality_filter=False,
         verbose=True,
 ):
     n_tot = df.shape[0]
