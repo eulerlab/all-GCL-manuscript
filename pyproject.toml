@@ -28,5 +28,13 @@ dev = [
     "pytest>=8.0",
 ]
 
+batcheffects = [
+    "torch>=2.0",
+    "scikit-learn",
+]
+
+[project.scripts]
+run-random-forest = "all_gcl_manuscript.batch_effects.run_random_forest:main"
+
 [tool.setuptools]
 packages = ["all_gcl_manuscript"]
