@@ -207,7 +207,6 @@ def main():
     results_path = get_results_file_path(
         args.prediction,
         "random_forest",
-        args.pca,
         args.fft,
         args.experimenters,
         args.location,

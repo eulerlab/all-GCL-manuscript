@@ -34,7 +34,7 @@ batcheffects = [
 ]
 
 [project.scripts]
-run-random-forest = "all_gcl_analysis.batch_effects.run_random_forest:main"
+run-random-forest = "all_gcl_manuscript.batch_effects.run_random_forest:main"
 
 [tool.setuptools]
 packages = ["all_gcl_manuscript"]

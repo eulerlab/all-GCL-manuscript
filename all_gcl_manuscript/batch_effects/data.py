@@ -273,7 +273,6 @@ def get_dataset_splits(
     dataset_name: str,
     experimenters: list[str] | None,
     features: list[str],
-    pca: bool,
     fft: bool,
     seed: int,
     location: str | None,
@@ -317,7 +316,6 @@ def get_dataset_splits(
     dataset_cl = partial(
         dataset_class,
         input_names=features,
-        do_apply_pca=pca,  # type: ignore
         use_fft_features=fft,
         low_pass_filter_frequency=lowpass_filter,
     )
@@ -345,7 +343,6 @@ def get_dataset_splits(
         dataset_cl = partial(
             dataset_class,
             input_names=features,
-            do_apply_pca=pca,  # type: ignore
             use_fft_features=fft,
             low_pass_filter_frequency=lowpass_filter,
         )
@@ -365,7 +362,6 @@ def get_dataset_split_from_args(args) -> tuple[Any, Any]:
         dataset_name=args.prediction,
         experimenters=args.experimenters,
         features=args.features,
-        pca=args.pca,
         fft=args.fft,
         seed=args.seed,
         location=args.location,

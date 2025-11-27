@@ -15,11 +15,9 @@ def parse_args():
         default="experimenter",
         help="Which attribute to predict",
     )
-    #                        choices=list(NAME_TO_DATASET.keys()))
     parser.add_argument(
         "--features", nargs="+", default=["chirp_8Hz_average_norm", "preproc_bar"], help="Input features"
     )
-    parser.add_argument("--pca", action=argparse.BooleanOptionalAction)
     parser.add_argument("--fft", action=argparse.BooleanOptionalAction)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument(
@@ -99,7 +97,6 @@ def predictions_averaged_over_unique_ids(
 def get_results_file_path(
     dataset_name: str,
     method_name: str,
-    do_apply_pca: bool,
     use_fft: bool,
     experimenters: list[str] | None,
     location: str | None,
@@ -111,8 +108,6 @@ def get_results_file_path(
     supergroup: str | None,
 ) -> str:
     results_path = f"results/{dataset_name}_{method_name}"
-    if do_apply_pca:
-        results_path += "_pca"
     if use_fft:
         results_path += "_fft"
     if experimenters is not None:
