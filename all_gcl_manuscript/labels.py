@@ -79,38 +79,38 @@ BADEN_CLUSTER_INFO = np.array([
 ])
 
 BADEN_GROUP_ID_NAMES = {
-    1: 'Off local, OS',
+    1: 'Off local OS',
     2: 'Off DS',
     3: 'Off step',
     4: 'Off slow',
     5: 'Off alpha sustained',
-    6: '(On-)Off "JAM-B" mix',
+    6: '"JAM-B" mix',
     7: 'Off sustained',
     8: 'Off alpha transient',
     9: 'Off "mini" alpha transient',
-    10: 'On-Off local-edge "W3"',
+    10: 'On-Off "W3"',
     11: 'On-Off local',
     12: 'On-Off DS 1',
     13: 'On-Off DS 2',
-    14: '(On-)Off local, OS',
+    14: '(On-)Off local OS',
     15: 'On step',
     16: 'On DS transient',
-    17: 'On local transient, OS',
+    17: 'On local transient OS',
     18: 'On transient',
-    19: 'On alpha transient',
+    19: 'On transient large',
     20: 'On high frequency',
     21: 'On low frequency',
     22: 'On sustained',
     23: 'On "mini" alpha',
-    24: 'On alpha sustained',
+    24: 'On alpha',
     25: 'On DS sustained 1',
     26: 'On DS sustained 2',
     27: 'On slow',
     28: 'On contrast suppressed',
     29: 'On DS sustained 3',
-    30: 'On local sustained, OS',
-    31: 'Off suppressed 1',
-    32: 'Off suppressed 2',
+    30: 'On local sustained OS',
+    31: 'Off contrast suppressed 1',
+    32: 'Off contrast suppressed 2',
     33: 'Off',
     34: 'On high frequency sustained 1',
     35: 'On high frequency transient',
@@ -189,11 +189,11 @@ def baden_group_id_to_group_name(group_id, shorten=False):
 
 
 def shorten_baden_name(name):
-    name = name.replace('high frequency', 'hf.')
+    name = name.replace('high frequency sustained', 'h-fr. sus.')
+    name = name.replace('high frequency transient', 'h-fr. trans.')
     name = name.replace('frequency', 'freq.')
     name = name.replace('sustained', 'sus.')
     name = name.replace('transient', 'trans.')
-    name = name.replace('suppressed', 'suppr.')
+    name = name.replace('contrast suppressed', 'cont. suppr.')
     name = name.replace('alpha', 'α')
-    name = name.replace('local-edge', 'l-edge')
     return name

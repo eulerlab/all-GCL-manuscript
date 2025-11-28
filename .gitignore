@@ -208,5 +208,7 @@ marimo/_lsp/
 __marimo__/
 
 
+# Figures
+*.svg
 *.pdf
 *.png
