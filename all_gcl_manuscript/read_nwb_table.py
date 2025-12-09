@@ -597,7 +597,7 @@ def combine_nwb_tables_from_directory(
     base_directory: str,
     pattern: str = "**/*.nwb",
     max_files: Optional[int] = None,
-    filter_to_match_original: bool = False,
+    filter_to_match_original: bool = True,
 ) -> pd.DataFrame:
     """Combine comprehensive tables from all NWB files in a directory structure.
 
@@ -606,7 +606,7 @@ def combine_nwb_tables_from_directory(
         pattern: Glob pattern to find NWB files (default: all .nwb files recursively)
         max_files: Maximum number of files to process (for testing)
         filter_to_match_original: If True, filter the table to match the original DataJoint export
-            by excluding rows missing celltype assignment data (default: False)
+            by excluding rows missing celltype assignment data (default: True)
 
     Returns:
         Combined DataFrame containing data from all NWB files
