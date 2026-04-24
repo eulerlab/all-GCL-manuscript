@@ -1,0 +1,2 @@
+dataset_dir: "/gpfs01/euler/data/Resources/All-GCL/database/"
+all_gcl_table: "all_GCL_table.parquet"

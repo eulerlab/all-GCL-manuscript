@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.14'",
@@ -13,12 +13,14 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "fastparquet" },
+    { name = "ipykernel" },
     { name = "joblib" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
     { name = "pyarrow" },
     { name = "pynwb" },
+    { name = "pyyaml" },
     { name = "scikit-learn" },
     { name = "scipy" },
     { name = "seaborn" },
@@ -39,6 +41,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastparquet", specifier = ">=2024.11" },
+    { name = "ipykernel", specifier = ">=7.1.0" },
     { name = "ipykernel", marker = "extra == 'dev'", specifier = ">=6.0" },
     { name = "joblib", specifier = ">=1.5" },
     { name = "jupyter", marker = "extra == 'dev'", specifier = ">=1.0" },
@@ -48,6 +51,7 @@ requires-dist = [
     { name = "pyarrow", specifier = ">=22.0" },
     { name = "pynwb", specifier = ">=3.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
     { name = "scikit-learn", specifier = ">=1.7.2" },
     { name = "scikit-learn", marker = "extra == 'batcheffects'" },
     { name = "scipy", specifier = ">=1.16.3" },
