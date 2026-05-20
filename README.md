@@ -21,7 +21,7 @@ https://www.biorxiv.org/content/10.64898/2025.12.04.691221v1
 
 
 ## Authors and acknowledgements
-Dominic Gonschorek<sup>#,1,2</sup>, Jonathan Oesterle<sup>#,1-3</sup>, Thomas Zenkel<sup>#,1,2</sup>, Federico D'Agostino<sup>#,2-4</sup>, Katrin Franke<sup>1,5-7</sup>, Ryan Arlinghaus<sup>1,2</sup>, Chenchen Cai<sup>1,2</sup>, Florentyna Deja<sup>1,2</sup>, Nadine Dyszkant<sup>1,2</sup>, Tom Schwerd-Kleine<sup>1,2</sup>, Klaudia Szatko<sup>1,2</sup>, Timm Schubert<sup>1,2</sup>, Philipp Berens<sup>1-4</sup>, Thomas Euler<sup>1,2,+</sup>
+Dominic Gonschorek<sup>#,1,2</sup>, Jonathan Oesterle<sup>#,1-3</sup>, Thomas Zenkel<sup>#,1,2</sup>, Federico D'Agostino<sup>#,2,4</sup>, Katrin Franke<sup>1,5-7</sup>, Ryan Arlinghaus<sup>1,2</sup>, Chenchen Cai<sup>1,2</sup>, Florentyna Deja<sup>1,2</sup>, Nadine Dyszkant<sup>1,2</sup>, Tom Schwerd-Kleine<sup>1,2</sup>, Klaudia Szatko<sup>1,2</sup>, Timm Schubert<sup>1,2</sup>, Philipp Berens<sup>1-4</sup>, Thomas Euler<sup>1,2,+</sup>
 
 <sup>#</sup>These authors contributed equally
 
