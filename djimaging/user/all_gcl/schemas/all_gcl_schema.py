@@ -1,7 +1,8 @@
 import datajoint as dj
 import numpy as np
 
-from djimaging.tables import core, misc, receptivefield, location, response, spike_estimation, classifier_v2
+from djimaging.tables import core, misc, receptivefield, location, response, spike_estimation, classifier_v2, \
+    color_flicker
 from djimaging.user.all_rgcs import tables as my_tables
 
 schema = dj.Schema()
@@ -79,6 +80,28 @@ class Presentation(core.PresentationTemplate):
         pass
 
 
+# Logs
+@schema
+class QdsPyLogFile(core.QdsPyLogFileTemplate):
+    exp_table = Experiment
+
+
+@schema
+class QdsPyLog(core.QdsPyLogTemplate):
+    log_file_table = QdsPyLogFile
+
+    class StimLog(core.QdsPyLogTemplate.StimLog):
+        pass
+
+
+@schema
+class PresentationLog(core.PresentationLogTemplate):
+    log_table = QdsPyLog.StimLog
+    stimulus_table = Stimulus
+    exp_table = Experiment
+    presentation_table = Presentation
+    
+
 # Misc
 @schema
 class HighRes(misc.HighResTemplate):
@@ -98,11 +121,42 @@ class HighRes(misc.HighResTemplate):
 
 
 @schema
+class RoiMask(core.RoiMaskTemplate):
+    _max_shift = 5  # Maximum shift of ROI mask in pixels
+
+    field_table = Field
+    presentation_table = Presentation
+    experiment_table = Experiment
+    userinfo_table = UserInfo
+    raw_params_table = RawDataParams
+    highres_table = HighRes
+
+    class RoiMaskPresentation(core.RoiMaskTemplate.RoiMaskPresentation):
+        presentation_table = Presentation
+
+
+@schema
+class CorrectedRoiMask(my_tables.CorrectedRoiMaskTemplate):
+    field_table = Field
+    roi_mask_table = RoiMask
+
+
+@schema
+class ConfirmedRoiMask(my_tables.ConfirmedRoiMaskTemplate):
+    field_table = Field
+    roi_mask_table = RoiMask
+    corr_roi_mask_table = CorrectedRoiMask
+
+
+@schema
 class DataRoiMask(my_tables.RoiMaskDataTemplate):
     field_table = Field
     raw_params_table = RawDataParams
     presentation_table = Presentation
     userinfo_table = UserInfo
+    base_roi_mask_table = RoiMask
+    corrected_roi_mask_table = CorrectedRoiMask
+    confirmed_roi_mask_table = ConfirmedRoiMask
 
     class RoiMaskPresentation(my_tables.RoiMaskDataTemplate.RoiMaskPresentation):
         presentation_table = Presentation
@@ -221,6 +275,14 @@ class ChirpQI(response.ChirpQITemplate):
 
 
 @schema
+class RepeatQI(response.RepeatQITemplate):
+    _stim_family = None
+    _stim_name = None
+    stimulus_table = Stimulus
+    snippets_table = Snippets
+
+
+@schema
 class ChirpFeatures(response.ChirpFeaturesRgcTemplate):
     stimulus_table = Stimulus
     snippets_table = Snippets
@@ -235,6 +297,11 @@ class OsDsIndexes(response.OsDsIndexesTemplate):
 
     stimulus_table = Stimulus
     snippets_table = Snippets
+
+
+@schema
+class PublishInfo(my_tables.PublishInfoTemplate):
+    field_table = Field
 
 
 # Classification
@@ -327,6 +394,12 @@ class FastSta(receptivefield.FastStaTemplate):
 
 
 @schema
+class FastStaQuality(receptivefield.FastStaQualityTemplate):
+    sta_table = FastSta
+    _baseline_dur_s = 0.2  # override per-project if desired
+
+
+@schema
 class SplitRFParams(receptivefield.SplitRFParamsTemplate):
     _max_dt_future = np.inf
 
@@ -382,6 +455,7 @@ class RfRoiOffset(receptivefield.RfRoiOffsetTemplate):
         # For the RF x and y can have different meaning,
         # dependent in which direction the dense noise stimulus was provided by the user.
 
+        # TODO: find a solution to make this robust.
         if str(setupid) == "1":
             rely_rf_roi_um = - rf_dx_um - rely_wrt_field  # RF x is aligned with -rely axis
             relx_rf_roi_um = + rf_dy_um - relx_wrt_field  # RF y is aligned with relx axis
@@ -392,3 +466,15 @@ class RfRoiOffset(receptivefield.RfRoiOffsetTemplate):
             raise NotImplementedError
 
         self.insert1(dict(**key, relx_rf_roi_um=relx_rf_roi_um, rely_rf_roi_um=rely_rf_roi_um))
+
+
+@schema
+class CenterSurroundParams(color_flicker.CenterSurroundParamsTemplate):
+    pass
+
+
+@schema
+class CenterSurround(color_flicker.CenterSurroundTemplate):
+    color_rf_table = FastSta
+    color_rf_time_table = FastStaParams
+    cs_params_table = CenterSurroundParams
