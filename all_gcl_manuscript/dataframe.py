@@ -36,7 +36,9 @@ def filter_df(
         df = df[keep]
 
     if rf_quality_filter:
-        keep = df.rf_cdia_um.notnull() & (df.rf_cdia_um < 600) & (df.rf_gauss_qidx > 0.4)
+        keep1 = df.noise_rf_cdia_um.notnull() & (df.noise_rf_cdia_um < 600) & (df.noise_rf_gauss_qidx > 0.4)
+        keep2 = df.shifty_noise_rf_cdia_um.notnull() & (df.shifty_noise_rf_cdia_um < 600) & (df.shifty_noise_rf_gauss_qidx > 0.4)
+        keep = keep1 | keep2
         if verbose:
             print(f'Filtering RF. Removing {sum(~keep)/n_tot:.0%} of the data.')
         df = df[keep]
