@@ -49,6 +49,15 @@ If you use this dataset, please cite:
 Gonschorek et al. (2025) "A large-scale dataset of functional mouse ganglion cell layer responses" bioRxiv  
 https://www.biorxiv.org/content/10.64898/2025.12.04.691221v1
 
+If you use specific data from the dataset, we encourage the user to also cite the following papers:
+
+- Szatko, Klaudia P., et al. "Neural circuits in the mouse retina support color vision in the upper visual field." Nature communications 11.1 (2020): 3481. 
+
+- Höfling, Larissa, et al. "A chromatic feature detector in the retina signals visual context changes." Elife 13 (2024): e86860.
+
+- Gonschorek, Dominic, et al. "Nitric oxide modulates contrast suppression in a subset of mouse retinal ganglion cells." Elife 13 (2025): RP98742.
+
+- Dyszkant, Nadine, et al. "Photoreceptor degeneration has heterogeneous effects on functional retinal ganglion cell types." The Journal of Physiology 603.21 (2025): 6599-6621.
 
 ## License
 
