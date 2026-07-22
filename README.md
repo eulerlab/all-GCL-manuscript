@@ -24,7 +24,11 @@ https://www.biorxiv.org/content/10.64898/2025.12.04.691221v1
 
 4. **Configure the dataset path** by updating `dataset_dir` in [`config.yaml`](config.yaml) to point to the folder containing the downloaded data.
 
-
+5. **Tutorial** Open the tutorial notebook [tutorial notebook](notebooks/tutorials/plot_traces_and_triggers.ipynb) or figures notebooks like [Fig2_dataset_overview](notebooks\Fig2_dataset_overview.ipynb) in jupyter for example via uv:
+   ```bash
+   uv run --with jupyter jupyter lab
+   ```
+   
 ## Data and related resources
 
 - **Dataset (NWB format):**  
