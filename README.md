@@ -5,6 +5,26 @@ A repository for reproducing the main figures and loading the data for the "All-
 https://www.biorxiv.org/content/10.64898/2025.12.04.691221v1
 
 
+## Usage
+
+1. **Download the data** from [Hugging Face](https://huggingface.co/datasets/eulerlab/all-gcl).
+
+2. **Clone this repository:**
+
+   ```bash
+   git clone https://github.com/eulerlab/all-GCL-manuscript.git
+   cd all-GCL-manuscript
+   ```
+
+3. **Install the package** using [uv](https://docs.astral.sh/uv/):
+
+   ```bash
+   uv sync
+   ```
+
+4. **Configure the dataset path** by updating `dataset_dir` in [`config.yaml`](config.yaml) to point to the folder containing the downloaded data.
+
+
 ## Data and related resources
 
 - **Dataset (NWB format):**  
@@ -17,7 +37,11 @@ https://www.biorxiv.org/content/10.64898/2025.12.04.691221v1
 
 - **GCL classifier:**  
   Code and pretrained models for functional cell-type classification:  
-  https://github.com/eulerlab/gcl_classifier  
+  https://github.com/eulerlab/gcl_classifier
+
+- **djimaging:**  
+  DataJoint schema and tables used to generate this dataset originally (see [djimaging/README.md](djimaging/README.md) for details):  
+  https://github.com/eulerlab/djimaging/releases/tag/all-gcl-v0.1.0
 
 
 ## Authors and acknowledgements
