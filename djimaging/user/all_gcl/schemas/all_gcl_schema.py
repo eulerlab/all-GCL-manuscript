@@ -136,35 +136,8 @@ class RoiMask(core.RoiMaskTemplate):
 
 
 @schema
-class CorrectedRoiMask(my_tables.CorrectedRoiMaskTemplate):
-    field_table = Field
-    roi_mask_table = RoiMask
-
-
-@schema
-class ConfirmedRoiMask(my_tables.ConfirmedRoiMaskTemplate):
-    field_table = Field
-    roi_mask_table = RoiMask
-    corr_roi_mask_table = CorrectedRoiMask
-
-
-@schema
-class DataRoiMask(my_tables.RoiMaskDataTemplate):
-    field_table = Field
-    raw_params_table = RawDataParams
-    presentation_table = Presentation
-    userinfo_table = UserInfo
-    base_roi_mask_table = RoiMask
-    corrected_roi_mask_table = CorrectedRoiMask
-    confirmed_roi_mask_table = ConfirmedRoiMask
-
-    class RoiMaskPresentation(my_tables.RoiMaskDataTemplate.RoiMaskPresentation):
-        presentation_table = Presentation
-
-
-@schema
 class Roi(core.RoiTemplate):
-    roi_mask_table = DataRoiMask
+    roi_mask_table = RoiMask
     userinfo_table = UserInfo
     field_table = Field
 
@@ -175,7 +148,7 @@ class Traces(core.TracesTemplate):
     raw_params_table = RawDataParams
     presentation_table = Presentation
     roi_table = Roi
-    roi_mask_table = DataRoiMask
+    roi_mask_table = RoiMask
 
 
 @schema
@@ -250,7 +223,7 @@ class RetinalFieldLocation(location.RetinalFieldLocationTemplate):
 @schema
 class RelativeRoiLocationWrtField(location.RelativeRoiLocationWrtFieldTemplate):
     roi_table = Roi
-    roi_mask_table = DataRoiMask
+    roi_mask_table = RoiMask
     field_table = Field
     presentation_table = Presentation
 
@@ -438,7 +411,7 @@ class RfRoiOffset(receptivefield.RfRoiOffsetTemplate):
     experiment_tab = Experiment
     stimulus_tab = Stimulus
     pres_tab = Presentation
-    roimask_tab = DataRoiMask.RoiMaskPresentation
+    roimask_tab = RoiMask.RoiMaskPresentation
     rf_fit_tab = FitGauss2DRF
 
     def make(self, key):
