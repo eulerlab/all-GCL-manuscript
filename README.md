@@ -1,5 +1,5 @@
 # All-GCL: A large-scale dataset of functional mouse ganglion cell layer responses
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20305942-blue)](https://doi.org/10.5281/zenodo.20305942)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21789286-blue)](https://doi.org/10.5281/zenodo.21789286)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-Hugging%20Face-yellow)](https://huggingface.co/datasets/eulerlab/all-gcl)
 [![GCL Classifier](https://img.shields.io/badge/GitHub-GCL%20Classifier-black?logo=github)](https://github.com/eulerlab/gcl_classifier)
 [![djimaging](https://img.shields.io/badge/GitHub-djimaging-black?logo=github)](https://github.com/eulerlab/djimaging/tree/all-gcl-v0.1.0)
